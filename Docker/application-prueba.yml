@@ -1,0 +1,28 @@
+
+spring:
+  datasource:
+    url: jdbc:mariadb://127.0.0.1/abc
+    driverClassName: org.mariadb.jdbc.Driver
+    username: root
+    password: a
+
+  #h2:
+    #console:
+    #    enabled: true
+    #    path: /h2
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      #ddl-auto: create
+      #database-platform: org.hibernate.dialect.H2Dialect
+
+logging:
+  level:
+    java.net.*: ERROR
+    com.sun.*: ERROR
+    org.springframework.security.web.*: ERROR
+    org.springframework.web: ERROR
+    org.hibernate: DEBUG
+    root: INFO
+    api.*:

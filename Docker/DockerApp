@@ -1,0 +1,14 @@
+
+    FROM dockerjava:1.11
+
+    COPY prueba-1.0.0-SNAPSHOT.jar /tmp
+    COPY application-prueba.yml /tmp
+
+    ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
+
+    WORKDIR /tmp
+
+    CMD java -Xmx500m \
+    -Dfile.encoding=UTF-8 \
+    -Dserver.port=${PORT} \
+    -jar -Dspring.profiles.active=prueba /tmp/prueba-1.0.0-SNAPSHOT.jar > /trazas/${MILIS_START}/stdout-${PORT}.log 2>&1
